@@ -1,7 +1,7 @@
 # AIAproject-FittingRoom
 <div align="center">
  <img src="image/result.png" width="500px" />
- <p>fig1. Testing result for different task</p>
+ <p>fig1. Testing result for different Try-On task.</p>
 </div>
 
 - Virtual Try-On scheme base on cycleGAN.
@@ -35,10 +35,10 @@ python test_cycleTryOn.py --name 'gmm_test' --stage 'GMM' --datamode test --data
 python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselimbs --datamode test --data_list 'test_pairs.txt' --checkpoint checkpoints/cycleTryOn_train/cycleTryOn_final.pth
 ```
 ## Discussion
-
-### Parsing_influence
+### 
+### more
+#### Parsing_influence
 <div align="center">
-    <p>fig 1.</p>
-  <img src="image/d1.png" width="203px" />
-    <p>compare </p>
+ <img src="image/d1.png" width="203px" />
+ <p>fig2. Higher IoU dose have better GMM result.</p>
 </div>
