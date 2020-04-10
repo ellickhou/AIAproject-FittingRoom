@@ -7,6 +7,9 @@
    - [Dataset](#Dataset)
    - [User guide](#User guide)
    - [Discussion](#Discussion)
+      - 屋
+   - [Discussion](#Discussion)   
+   - [Discussion](#Discussion)
 
 
 ## Dataset
@@ -16,7 +19,7 @@
 ## User guide
 - This project's Try-On Module refer to [Virtually Trying on New Clothing with Arbitrary Poses](https://www.english.com.tw/modules/newbb/viewtopic.php?post_id=928), but change the training strategy and dataflow for different purpose.
 ### Training
-- example command, ```--uselimbs``` is an option for certain Try-On task, please see Discussion(#Discussion)
+- example command, ```--uselimbs``` is an option for certain Try-On task, please see
 ```
 python train_cycleTryOn.py --name 'gmm_train' --stage 'GMM' --save_count 5000 --shuffle
 python train_cycleTryOn.py --name 'cycleTryOn_train' --stage 'cycleTryOn' --uselimbs
