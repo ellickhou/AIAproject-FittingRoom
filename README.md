@@ -1,6 +1,6 @@
 # AIAproject-FittingRoom
 <div align="center">
-
+ <img src="image/result.png" width="500px" />
 </div>
 
 - Virtual Try-On scheme base on cycleGAN.
