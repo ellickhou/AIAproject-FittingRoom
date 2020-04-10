@@ -1,6 +1,7 @@
 # AIAproject-FittingRoom
 <div align="center">
  <img src="image/result.png" width="500px" />
+ <p>fig1. Testing result for different task</p>
 </div>
 
 - Virtual Try-On scheme base on cycleGAN.
@@ -37,7 +38,7 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 
 ### Parsing_influence
 <div align="center">
-    <p align="left">fig 1.</p>
+    <p>fig 1.</p>
   <img src="image/d1.png" width="203px" />
     <p>compare </p>
 </div>
