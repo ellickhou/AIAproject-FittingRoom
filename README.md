@@ -1,7 +1,8 @@
 # AIAproject-FittingRoom
 <div align="center">
- <img src="image/result.png" width="554px" />
+ <img src="image/result.png" width="500px" />
 </div>
+
 - Virtual Try-On scheme base on cycleGAN.
 - Top3 project in Taiwain AI Academy finals.(Technical Professionals)
 - Use cycle consistency to improve some unreasonable results either due to geometric matching limit or autoencoder-only framework.
