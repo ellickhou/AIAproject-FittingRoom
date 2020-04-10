@@ -6,7 +6,7 @@
 - _TOC_
    - [Dataset](#Dataset)
    - [User guide](#User guide)
-   - [Results](#Results)
+   - [Discussion](#Discussion)
 
 
 ## Dataset
@@ -16,7 +16,7 @@
 ## User guide
 - This project's Try-On Module refer to [Virtually Trying on New Clothing with Arbitrary Poses](https://www.english.com.tw/modules/newbb/viewtopic.php?post_id=928), but change the training strategy and dataflow for different purpose.
 ### Training
-- example command, ```--uselimbs``` is an option for certain Try-On task, 
+- example command, ```--uselimbs``` is an option for certain Try-On task, please see Discussion(#Discussion)
 ```
 python train_cycleTryOn.py --name 'gmm_train' --stage 'GMM' --save_count 5000 --shuffle
 python train_cycleTryOn.py --name 'cycleTryOn_train' --stage 'cycleTryOn' --uselimbs
@@ -26,6 +26,6 @@ python train_cycleTryOn.py --name 'cycleTryOn_train' --stage 'cycleTryOn' --usel
 python test_cycleTryOn.py --name 'gmm_test' --stage 'GMM' --datamode test --data_list 'test_pairs.txt' --checkpoint checkpoints/gmm_train/gmm_final.pth
 python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselimbs --datamode test --data_list 'test_pairs.txt' --checkpoint checkpoints/cycleTryOn_train/cycleTryOn_final.pth
 ```
-## Results
+## Discussion
 
 ### 
