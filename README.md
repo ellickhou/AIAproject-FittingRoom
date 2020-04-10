@@ -7,9 +7,7 @@
    - [Dataset](#Dataset)
    - [User guide](#User guide)
    - [Discussion](#Discussion)
-      - 屋
-   - [Discussion](#Discussion)   
-   - [Discussion](#Discussion)
+      - []
 
 
 ## Dataset
@@ -32,3 +30,7 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 ## Discussion
 
 ### 
+<div align="center">
+  <img src="image/d1.png" width="576px" />
+    <p>Example of TOM test. The center image in the last row is the synthesized image.</p>
+</div>
