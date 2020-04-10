@@ -9,7 +9,9 @@
 - Code is developed and tested with Pytorch==0.4.1, torchvision==0.2.1.
 - _TOC_
    - [Dataset](#Dataset)
-   - [User guide](#User guide)
+   - [User_guide](#User_guide)
+    - [Training](#Training)
+    - [Testing](#Testing)
    - [Discussion](#Discussion)
       - []
 
@@ -18,7 +20,7 @@
 - Base on [CP-VTON](https://github.com/sergeywong/cp-vton) dataset.
 - Use [Self Correction for Human Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing) to achieve better parsing results.
 - Add male model images extracted from [FashionGen dataset](https://fashion-gen.com) to extend real word usage.
-## User guide
+## User_guide
 - This project's Try-On Module refer to [Virtually Trying on New Clothing with Arbitrary Poses](https://www.english.com.tw/modules/newbb/viewtopic.php?post_id=928), but change the training strategy and dataflow for different purpose.
 ### Training
 - example command, ```--uselimbs``` is an option for certain Try-On task, please see
