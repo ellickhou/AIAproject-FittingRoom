@@ -13,7 +13,7 @@
      - [Training](#Training)
      - [Testing](#Testing)
    - [Discussion](#Discussion)
-      - []
+      - [Parsing_influence](#Parsing_influence)
 
 
 ## Dataset
@@ -35,9 +35,9 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 ```
 ## Discussion
 
-### Parsing influence
+### Parsing_influence
 <div align="center">
-    <p>fig 1.</p>
+    <p align="left">fig 1.</p>
   <img src="image/d1.png" width="203px" />
     <p>compare </p>
 </div>
