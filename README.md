@@ -1,4 +1,8 @@
 # AIAproject-FittingRoom
+<div align="center">
+ <img src="image/result.png" width="500px" />
+</div>
+
 - Virtual Try-On scheme base on cycleGAN.
 - Top3 project in Taiwain AI Academy finals.(Technical Professionals)
 - Use cycle consistency to improve some unreasonable results either due to geometric matching limit or autoencoder-only framework.
@@ -29,8 +33,9 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 ```
 ## Discussion
 
-### 
+### Parsing influence
 <div align="center">
-  <img src="image/d1.png" width="576px" />
-    <p>Example of TOM test. The center image in the last row is the synthesized image.</p>
+    <p>fig 1.</p>
+  <img src="image/d1.png" width="203px" />
+    <p>compare </p>
 </div>
