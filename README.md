@@ -6,7 +6,7 @@
 
 - Virtual Try-On scheme base on cycleGAN.
 - Top3 project in Taiwain AI Academy finals.(Technical Professionals)
-- Use cycle consistency to improve some unreasonable results either due to geometric matching limit or autoencoder-only framework.
+- Use cycle consistency to improve some unreasonable results either due to geometric matching or autoencoder-only framework.
 - Code is developed and tested with Pytorch==0.4.1, torchvision==0.2.1.
 - _TOC_
    - [Dataset](#Dataset)
