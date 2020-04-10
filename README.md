@@ -4,7 +4,7 @@
 - Code is developed and tested with Pytorch==0.4.1, torchvision==0.2.1.
 - Top3 project in Taiwain AI Academy finals.(Technical Professionals)
 - _TOC_
-   * [Dataset](#Dataset)
+   - [Dataset](#Dataset)
 
 
 ## Dataset
