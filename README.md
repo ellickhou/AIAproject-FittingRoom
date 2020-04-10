@@ -16,7 +16,9 @@
 ## User guide
 ### Training
 - example command
-         python train.py --name gmm_train_new --stage GMM --workers 4 --save_count 5000 --shuffle
+'''
+python train.py --name gmm_train_new --stage GMM --workers 4 --save_count 5000 --shuffle
+'''
    
 ## Results
 - This project's Try-On Module refer to [Virtually Trying on New Clothing with Arbitrary Poses](https://www.english.com.tw/modules/newbb/viewtopic.php?post_id=928), but change the training strategy and dataflow for different purpose.
