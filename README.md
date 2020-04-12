@@ -1,7 +1,7 @@
 # AIAproject-FittingRoom
 <div align="center">
  <img src="image/result.png" width="700px" />
- <p>fig.1 Testing result for different Try-On task.</p>
+ <p>Fig.1 Testing result for different type of Try-On task.</p>
 </div>
 
 - Virtual Try-On scheme base on cycleGAN.
@@ -37,11 +37,12 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 ## Discussion
 - In this section, we reproduce [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided, and compare to our model.
 ### Geometric_Matching_Limitation
-- Geometric Matching Module(GMM) proposed by [CP-VTON](https://github.com/sergeywong/cp-vton) have proven its efficiency in aligning in-shop cloth with the person image. But GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth into the original cloth shape on person if the deformation grid is dense enough. As shown in 'Warped Cloth' column of fig.2, all tag still exist.
-- To adjust this unreasonable result, cycle-consistency loss and adversarial loss works together in this work to hide the inner part of the cloth and generate the appropriate skin color of the person.
+- Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image. But GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth into the original cloth shape on person if the deformation grid is dense enough.
+- In this work, cycle-consistency loss and adversarial loss are introduce to adjust this unrealistic result.
+- Compared with CP-VTON, our cycleTryOn module have learned how to hide the inner part of the cloth and generate the appropriate skin color of the person.
 <div align="center">
  <img src="image/GML.png" width="700px" />
- <p>fig.2 .</p>
+ <p>Fig.2 The lining and tag of target cloth have been warped together by geometric matching. still exist in CP-VTON </p>
 </div>
 ### More
 #### Parsing_Influence
