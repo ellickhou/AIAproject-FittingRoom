@@ -1,6 +1,6 @@
 # AIAproject-FittingRoom
 <div align="center">
- <img src="image/result.pdf" width="700px" />
+ <img src="image/result.png" width="700px" />
  <p>fig.1 Testing result for different Try-On task.</p>
 </div>
 
