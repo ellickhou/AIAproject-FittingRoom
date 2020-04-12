@@ -10,7 +10,7 @@
 - Code is developed and tested with pytorch==0.4.1, torchvision==0.2.1.
 - _TOC_
    - [Dataset](#Dataset)
-   - [User_Guide](#User_Guide)
+   - [User Guide](#User-Guide)
      - [Training](#Training)
      - [Testing](#Testing)
    - [Discussion](#Discussion)
@@ -19,10 +19,10 @@
 
 
 ## Dataset
-- Base on [CP-VTON](https://github.com/sergeywong/cp-vton) dataset.
+- Base on [Toward Characteristic-Preserving Image-based Virtual Try-On Network](https://github.com/sergeywong/cp-vton)(CP-VTON) dataset.
 - Use [Self Correction for Human Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing) to achieve better parsing results.
 - Add male model images extracted from [FashionGen dataset](https://fashion-gen.com) to extend real word usage.
-## User_Guide
+## User Guide
 - The framework of Try-On Module in this project refer to [Virtually Trying on New Clothing with Arbitrary Poses](https://www.english.com.tw/modules/newbb/viewtopic.php?post_id=928), but change the training strategy and pipeline for different purpose.
 ### Training
 - example command, ```--uselimbs``` is an option for certain Try-On task, please see [Discussion](#Discussion).
@@ -38,12 +38,12 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 ## Discussion
 - In this section, we reproduce [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided, and compare to our model.
 ### Geometric Matching Limitation
-- Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image. But GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth into the original cloth shape on person if the deformation grid is dense enough.
-- In this work, cycle-consistency loss and adversarial loss are introduce to adjust this unrealistic result.
+- Although Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image, GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth into the original cloth shape on person if the deformation grid is dense enough.
+- In this work, **cycle-consistency loss** and **adversarial loss** were introduced to adjust this unrealistic result.
 - Compared with CP-VTON, our cycleTryOn module have learned how to hide the inner part of the cloth and generate the appropriate skin color of the person as shown in Fig.2.
 <div align="center">
  <img src="image/GML.png" width="700px" />
- <p>Fig.2 The lining and tag of target cloth have been warped together by geometric matching. still exist in CP-VTON </p>
+ <p>Fig.2 The lining and tag of target cloth. still exist in CP-VTON </p>
 </div>
 
 ### More
