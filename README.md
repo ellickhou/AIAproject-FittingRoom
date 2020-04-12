@@ -39,11 +39,11 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 - In this section, we reproduce [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided, and compare to our model.
 ### Geometric Matching Limitation
 - Although Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image, GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth into the original cloth shape on person if the deformation grid is dense enough.
-- In this work, **cycle-consistency loss** and **adversarial loss** were introduced to adjust this unrealistic result.
-- Compared with CP-VTON, our cycleTryOn module have learned how to hide the inner part of the cloth and generate the appropriate skin color of the person as shown in Fig.2.
+- In this work, **cycle consistency loss** and **adversarial loss** were introduced to adjust this unrealistic result.
+- As shown in Fig.2 The lining and tag of target cloth still exist in results of CP-VTON. Compared with CP-VTON, our cycleTryOn module have learned how to hide the inner part of the cloth and successfully generate the appropriate skin color of the person.
 <div align="center">
  <img src="image/GML.png" width="700px" />
- <p>Fig.2 The lining and tag of target cloth. still exist in CP-VTON </p>
+ <p>Fig.2 In comparison of lining showing problem in CP-VTON's results, ours successfully adjust that.</p>
 </div>
 
 ### More
