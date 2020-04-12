@@ -14,8 +14,8 @@
      - [Training](#Training)
      - [Testing](#Testing)
    - [Discussion](#Discussion)
-     - [Geometric Matching Limitation](#Geometric Matching Limitation)
-     - [Parsing Influence](#Parsing Influence)
+     - [Geometric Matching Limitation](#Geometric-Matching-Limitation)
+     - [Parsing Influence](#Parsing-Influence)
 
 
 ## Dataset
