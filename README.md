@@ -36,7 +36,7 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 ```
 ## Discussion
 ### 
-### more
+### More
 #### Parsing_influence
 <div align="center">
  <img src="image/d1.png" width="203px" />
