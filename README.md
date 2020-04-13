@@ -26,7 +26,7 @@
 - Add male model images extracted from [FashionGen dataset](https://fashion-gen.com) to extend real word usage.
 
 ## Discussion
-- In this section, we reproduced [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided, and compare to our model.
+- We reproduced [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided to make comparison with our cycleTryOn module in this section.
 
 ### Geometric Matching Limitation
 - Although Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image, GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth images into the original cloth shape on person if the deformation grid is dense enough.
