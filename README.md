@@ -38,6 +38,7 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 ```
 ## Discussion
 - In this section, we reproduced [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided, and compare to our model.
+
 ### Geometric Matching Limitation
 - Although Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image, GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth images into the original cloth shape on person if the deformation grid is dense enough.
 - **Cycle Consistency loss** and **Adversarial loss** were introduced to adjust this unrealistic result in this work. 
@@ -46,9 +47,12 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
  <img src="image/GML.png" width="700px" />
  <p>Fig.2 In comparison of lining showing problem with CP-VTON's results, our cycleTryOn module successfully adjust that.</p>
 </div>
+
 ### Rare Pose Problem
 - For some rare pose in dataset, such as pose with folded arms, failure cases become a lot in CP-VTON. In fact there is NO succese testing result in our reproduced CP-VTON model. 
 - In our perspective, networks without inverse mapping is hard to learn in which case should be reserved
+
+
 ### More
 #### Parser Influence
 <div align="center">
