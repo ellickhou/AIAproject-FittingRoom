@@ -50,7 +50,7 @@
 
 #### Joined Limbs Into Body Information
 - After solve arms missing problem we joined limbs information into body information aims to refine the details.
-- Provide limbs information to the network do have great limbs details in result as shown in Fig.4. But the presence of limbs information in input seems to strongly limit the cloth shape to the original one on model(see Fig.4).
+- Provides limbs information to the network do have great limbs details in result as shown in Fig.4. But the presence of limbs information in input seems to strongly limit the cloth shape to the original one on model(see Fig.4).
 - Although the usage of providing limbs information is restricted to same cloth type only, we still suggest training model by case for real word usage cause the refinement of details is too good.
 
 <div align="center">
