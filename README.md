@@ -16,7 +16,7 @@
    - [Discussion](#Discussion)
      - [Geometric Matching Limitation](#Geometric-Matching-Limitation)
      - [Rare Pose Problem](#Rare-Pose-Problem)
-     - [Parsing Influence](#Parsing-Influence)
+     - [More](#More)
 
 
 ## Dataset
@@ -49,9 +49,14 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 </div>
 
 ### Rare Pose Problem
-- For some rare pose in dataset, such as pose with folded arms, failure cases become a lot in CP-VTON. In fact there is NO succese testing result in our reproduced CP-VTON model. 
-- In our perspective, networks without inverse mapping is hard to learn in which case should be reserved
+- For some rare pose in dataset, such as pose with folded arms, failure rate become extremely high in CP-VTON. In fact there is NO succese testing result in our reproduced CP-VTON model. 
+- In our perspective, networks without inverse mapping is hard to learn in which case people's body information should be reserved. The best strategy of generator is paste the warped cloth on the right position when the data of folded arms pose is short.
+- **Cycle Consistency** take a huge advantage to minimize this problem. It's simply because if people's body information is missing in final result, the load of generator to mapping back to original image become too heave, so the best strategy will be reserve those information at the first time.
 
+<div align="center">
+ <img src="image/RPP.png" width="700px" />
+ <p>Fig.3 In comparison of folded arms roblem with CP-VTON's results, our cycleTryOn module successfully reserve arms information. Even though our model haven't optimize to its best state, the tendency is still clearly.</p>
+</div>
 
 ### More
 #### Parser Influence
