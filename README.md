@@ -1,12 +1,12 @@
 # AIAproject-FittingRoom
 <div align="center">
  <img src="image/result.png" width="700px" />
- <p>Fig.1 Testing result for different type of Try-On task.</p>
+ <p>Fig.1 Testing result for different types of Try-On task.</p>
 </div>
 
 - Virtual Try-On scheme base on cycleGAN.
 - Top3 project in Taiwain AI Academy finals.(Technical Professionals Program)
-- Use cycle consistency to improve unreasonable results either due to geometric matching or autoencoder-only framework.
+- Use cycle consistency to improve unreasonable results either due to geometric matching or behavior of networks without inverse mapping.
 - Code is developed and tested with pytorch==0.4.1, torchvision==0.2.1.
 - _TOC_
    - [Dataset](#Dataset)
@@ -15,6 +15,7 @@
      - [Testing](#Testing)
    - [Discussion](#Discussion)
      - [Geometric Matching Limitation](#Geometric-Matching-Limitation)
+     - [Rare Pose Problem](#Rare-Pose-Problem)
      - [Parsing Influence](#Parsing-Influence)
 
 
@@ -36,18 +37,20 @@ python test_cycleTryOn.py --name 'gmm_test' --stage 'GMM' --datamode test --data
 python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselimbs --datamode test --data_list 'test_pairs.txt' --checkpoint checkpoints/cycleTryOn_train/cycleTryOn_final.pth
 ```
 ## Discussion
-- In this section, we reproduce [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided, and compare to our model.
+- In this section, we reproduced [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided, and compare to our model.
 ### Geometric Matching Limitation
-- Although Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image, GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth into the original cloth shape on person if the deformation grid is dense enough.
-- In this work, **cycle consistency loss** and **adversarial loss** were introduced to adjust this unrealistic result.
-- As shown in Fig.2 The lining and tag of target cloth still exist in results of CP-VTON. Compared with CP-VTON, our cycleTryOn module have learned how to hide the inner part of the cloth and successfully generate the appropriate skin color of the person.
+- Although Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image, GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth images into the original cloth shape on person if the deformation grid is dense enough.
+- **Cycle Consistency loss** and **Adversarial loss** were introduced to adjust this unrealistic result in this work. 
+- As shown in Fig.2, the lining and tag of target cloth still exist in results of CP-VTON. Compared with CP-VTON, our cycleTryOn module have learned how to hide the inner part of the cloth and successfully generate the appropriate skin color of the person.
 <div align="center">
  <img src="image/GML.png" width="700px" />
- <p>Fig.2 In comparison of lining showing problem in CP-VTON's results, ours successfully adjust that.</p>
+ <p>Fig.2 In comparison of lining showing problem with CP-VTON's results, our cycleTryOn module successfully adjust that.</p>
 </div>
-
+### Rare Pose Problem
+- For some rare pose in dataset, such as pose with folded arms, failure cases become a lot in CP-VTON. In fact there is NO succese testing result in our reproduced CP-VTON model. 
+- In our perspective, networks without inverse mapping is hard to learn in which case should be reserved
 ### More
-#### Parsing Influence
+#### Parser Influence
 <div align="center">
  <img src="image/PI.png" width="203px" />
  <p>fig.? Higher IoU dose improve GMM result .</p>
