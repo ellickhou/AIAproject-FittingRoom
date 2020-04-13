@@ -35,7 +35,7 @@
 
 <div align="center">
  <img src="image/GML.png" width="700px" />
- <p>Fig.2 In comparison of lining showing problem with CP-VTON's results, our cycleTryOn module successfully adjust that.</p>
+ <p>Fig.2 In comparison of lining showing problem with CP-VTON's results, our cycleTryOn module successfully adjust this problem.</p>
 </div>
 
 ### Arms Missing Problem
