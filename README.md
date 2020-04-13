@@ -1,27 +1,29 @@
 # AIAproject-FittingRoom
 <div align="center">
  <img src="image/result.png" width="700px" />
- <p>Fig.1 Testing result for different type of Try-On task.</p>
+ <p>Fig.1 Testing result for different types of Try-On task.</p>
 </div>
 
 - Virtual Try-On scheme base on cycleGAN.
 - Top3 project in Taiwain AI Academy finals.(Technical Professionals Program)
-- Use cycle consistency to improve unreasonable results either due to geometric matching or autoencoder-only framework.
+- Use cycle consistency to improve unreasonable results either due to geometric matching or behavior of networks without inverse mapping.
 - Code is developed and tested with pytorch==0.4.1, torchvision==0.2.1.
 - _TOC_
    - [Dataset](#Dataset)
-   - [User_Guide](#User_Guide)
+   - [User Guide](#User-Guide)
      - [Training](#Training)
      - [Testing](#Testing)
    - [Discussion](#Discussion)
-     - [Parsing_influence](#Parsing_influence)
+     - [Geometric Matching Limitation](#Geometric-Matching-Limitation)
+     - [Rare Pose Problem](#Rare-Pose-Problem)
+     - [More](#More)
 
 
 ## Dataset
-- Base on [CP-VTON](https://github.com/sergeywong/cp-vton) dataset.
+- Base on [Toward Characteristic-Preserving Image-based Virtual Try-On Network](https://github.com/sergeywong/cp-vton)(CP-VTON) dataset.
 - Use [Self Correction for Human Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing) to achieve better parsing results.
 - Add male model images extracted from [FashionGen dataset](https://fashion-gen.com) to extend real word usage.
-## User_Guide
+## User Guide
 - The framework of Try-On Module in this project refer to [Virtually Trying on New Clothing with Arbitrary Poses](https://www.english.com.tw/modules/newbb/viewtopic.php?post_id=928), but change the training strategy and pipeline for different purpose.
 ### Training
 - example command, ```--uselimbs``` is an option for certain Try-On task, please see [Discussion](#Discussion).
@@ -35,17 +37,29 @@ python test_cycleTryOn.py --name 'gmm_test' --stage 'GMM' --datamode test --data
 python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselimbs --datamode test --data_list 'test_pairs.txt' --checkpoint checkpoints/cycleTryOn_train/cycleTryOn_final.pth
 ```
 ## Discussion
-- In this section, we reproduce [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided, and compare to our model.
-### Geometric_Matching_Limitation
-- Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image. But GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth into the original cloth shape on person if the deformation grid is dense enough.
-- In this work, cycle-consistency loss and adversarial loss are introduce to adjust this unrealistic result.
-- Compared with CP-VTON, our cycleTryOn module have learned how to hide the inner part of the cloth and generate the appropriate skin color of the person.
+- In this section, we reproduced [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided, and compare to our model.
+
+### Geometric Matching Limitation
+- Although Geometric Matching Module(GMM) proposed by CP-VTON have proven its efficiency in aligning in-shop cloth with the person image, GMM does not have the ability to tell the difference between inner side of the cloth and the outer side, in other words GMM tends to force the WHOLE in-shop cloth images into the original cloth shape on person if the deformation grid is dense enough.
+- **Cycle Consistency loss** and **Adversarial loss** were introduced to adjust this unrealistic result in this work. 
+- As shown in Fig.2, the lining and tag of target cloth still exist in results of CP-VTON. Compared with CP-VTON, our cycleTryOn module have learned how to hide the inner part of the cloth and successfully generate the appropriate skin color of the person.
 <div align="center">
  <img src="image/GML.png" width="700px" />
- <p>Fig.2 The lining and tag of target cloth have been warped together by geometric matching. still exist in CP-VTON </p>
+ <p>Fig.2 In comparison of lining showing problem with CP-VTON's results, our cycleTryOn module successfully adjust that.</p>
 </div>
+
+### Rare Pose Problem
+- For some rare pose in dataset, such as pose with folded arms, failure rate become extremely high in CP-VTON. In fact there is NO succese testing result in our reproduced CP-VTON model. 
+- In our perspective, networks without inverse mapping is hard to learn in which case people's body information should be reserved. The best strategy of generator is paste the warped cloth on the right position when the data of folded arms pose is short.
+- **Cycle Consistency** take a huge advantage to minimize this problem. It's simply because if people's body information is missing in final result, the load of generator to mapping back to original image become too heave, so the best strategy will be reserve those information at the first time.
+
+<div align="center">
+ <img src="image/RPP.png" width="700px" />
+ <p>Fig.3 In comparison of folded arms roblem with CP-VTON's results, our cycleTryOn module successfully reserve arms information. Even though our model haven't optimize to its best state, the tendency is still clearly.</p>
+</div>
+
 ### More
-#### Parsing_Influence
+#### Parser Influence
 <div align="center">
  <img src="image/PI.png" width="203px" />
  <p>fig.? Higher IoU dose improve GMM result .</p>
