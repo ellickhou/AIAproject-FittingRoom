@@ -14,8 +14,7 @@
      - [Geometric Matching Limitation](#Geometric-Matching-Limitation)
      - [Arms Missing Problem](#Arms-Missing-Problem)
        - [Joined Limbs Into Body Information](#Joined-Limbs-Into-Body-Information)
-     - [More](#More)
-       - [Parser Influence](#Parser-Influence)
+     - [Human Parser Influence](#Human-Parser-Influence)
    - [User Guide](#User-Guide)
      - [Training](#Training)
      - [Testing](#Testing)
@@ -45,25 +44,28 @@
 - **Cycle Consistency** take a huge advantage to minimize this problem. It's simply because if people's body information is missing in final result, the load of generator to mapping back to original image becomes too heave, so the best strategy will be reserve those information at the first time.
 
 <div align="center">
- <img src="image/RPP.png" width="700px" />
+ <img src="image/AMP.png" width="700px" />
  <p>Fig.3 In comparison of arms missing problem with CP-VTON's results, our cycleTryOn module successfully reserve arms information. Even though our model haven't optimize to its best state, the tendency is still obvious.</p>
 </div>
 
 #### Joined Limbs Into Body Information
 - After solve arms missing problem we joined limbs information into body information aims to refine the details.
-- Providing more body information to the network do have better limbs detail as shown in Fig.4.
+- Provide limbs information to the network do have great limbs details in result as shown in Fig.4. But the presence of limbs information in input seems to strongly limit the cloth shape to the original one on model(see Fig.4).
+- Although the usage of providing limbs information is restricted to same cloth type only, we still suggest training model by case for real word usage cause the refinement of details is too good.
 
 <div align="center">
- <img src="image/RPP.png" width="700px" />
- <p>Fig.4 In comparison of arms missing problem with CP-VTON's results, our cycleTryOn module successfully reserve arms information. Even though our model haven't optimize to its best state, the tendency is still obvious.</p>
+ <img src="image/LE1.png" width="700px" />
+ <p>Fig.4 Comparison of limbs information been joined.</p>
+ <img src="image/LE2.png" width="700px" />
+ <p>Fig.5 Cases of the cloth type changed.</p>
 </div>
 
-### More
+### Human Parser Influence
+- Since GMM
 
-#### Parser Influence
 <div align="center">
  <img src="image/PI.png" width="203px" />
- <p>fig.? Higher IoU dose improve GMM result .</p>
+ <p>Fig.6 Higher IoU dose improve GMM result .</p>
 </div>
 
 ## User Guide
