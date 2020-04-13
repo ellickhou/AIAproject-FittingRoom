@@ -55,7 +55,7 @@ python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselim
 
 <div align="center">
  <img src="image/RPP.png" width="700px" />
- <p>Fig.3 In comparison of folded arms roblem with CP-VTON's results, our cycleTryOn module successfully reserve arms information. Even though our model haven't optimize to its best state, the tendency is still clearly.</p>
+ <p>Fig.3 In comparison of folded arms problem with CP-VTON's results, our cycleTryOn module successfully reserve arms information. Even though our model haven't optimize to its best state, the tendency is still clearly.</p>
 </div>
 
 ### More
