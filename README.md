@@ -6,7 +6,7 @@
 
 - Virtual Try-On scheme base on cycleGAN.
 - Top3 project in Taiwain AI Academy finals.(Technical Professionals Program)
-- Use cycle consistency to improve unreasonable results either due to geometric matching or behavior of networks without inverse mapping.
+- Use cycle consistency to improve unrealistic results either due to geometric matching or behavior of networks without inverse mapping.
 - Code is developed and tested with pytorch==0.4.1, torchvision==0.2.1.
 - _TOC_
    - [Dataset](#Dataset)
