@@ -61,10 +61,10 @@
 </div>
 
 ### Human Parser Influence
-- Since GMM
+- Since GMM takes the original cloth on person as ground truth by using human parser to crop the cloth out from model images, we consider the higher mIoU human parsing network can achieve the better GMM result would be.
 
 <div align="center">
- <img src="image/PI.png" width="203px" />
+ <img src="image/PI.png" width="350px" />
  <p>Fig.6 Higher IoU dose improve GMM result .</p>
 </div>
 
