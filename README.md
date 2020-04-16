@@ -82,10 +82,10 @@ python test_cycleTryOn.py --name 'gmm_test' --stage 'GMM' --datamode test --data
 python test_cycleTryOn.py --name 'cycleTryOn_test' --stage 'cycleTryOn' --uselimbs --datamode test --data_list 'test_pairs.txt' --checkpoint checkpoints/cycleTryOn_train/cycleTryOn_final.pth
 ```
 ## Reference
-@inproceedings{wang2018toward,
+$ @inproceedings{wang2018toward,
 	title={Toward Characteristic-Preserving Image-based Virtual Try-On Network},
 	author={Wang, Bochao and Zheng, Huabin and Liang, Xiaodan and Chen, Yimin and Lin, Liang},
 	booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
 	pages={589--604},
 	year={2018}
-}
+} $
