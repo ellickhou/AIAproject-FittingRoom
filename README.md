@@ -26,7 +26,7 @@
 - Add male model images extracted from [FashionGen dataset](https://fashion-gen.com) to encompass all genders for real world usage.
 
 ## Discussion
-- We replicated [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details their paper provided to make comparison with our cycleTryOn module in this section.
+- We replicated [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details, provided by their paper, to make comparison with our cycleTryOn module in this section.
 
 ### Geometric Matching Limitation
 - Although Geometric Matching Module(GMM), proposed by CP-VTON, had proven its efficiency in aligning in-shop clothes with human images, GMM dose not have the ability to differentiate the inside and outside of clothes, To be more precisely, GMM tends to force the WHOLE in-shop cloth into the original clothing shape on person if the deformation grid is dense enough.
@@ -43,7 +43,7 @@
 ### Arms Missing Problem
 - For some rare poses in dataset, pose with folded arms for example, failure rate become extremely high in CP-VTON. Substantially, there has NO success testing result been found in our facsimile of CP-VTON module. 
 
-- From our perspective, networks without inverse mapping is hard to learn in which case people's body informations should be reserved. The best strategy of generator is paste warped clothes on the right position when the data of folded arms pose is short.
+- From our perspective, networks without inverse mapping is hard to learn in which case people's body informations should be reserved. The best strategy of generator is to paste warped clothes on the right position when the data of folded arms pose is short.
 
 - **Cycle Consistency** takes a huge advantage to minimize this problem. It's simply because if people's body informations are missing in final results, the generator will become heavily loaded when it mapping back to original images. Therefore, the best strategy will be reserving those informations at the first time.
 
