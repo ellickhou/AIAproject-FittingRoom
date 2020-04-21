@@ -43,18 +43,20 @@
 ### Arms Missing Problem
 - For some rare poses in dataset, pose with folded arms for example, failure rate become extremely high in CP-VTON. Substantially, there has NO success testing result been found in our facsimile of CP-VTON module. 
 
-- From our perspective, networks without inverse mapping is hard to learn in which case people's body informations should be reserved. The best strategy of generator is to paste warped clothes on the right position when the data of folded arms pose is short.
+- From our perspective, networks without inverse mapping is hard to learn in which case people's body information should be reserved. The best strategy of generator is to paste warped clothes on the right position when the data of folded arms pose is short.
 
-- **Cycle Consistency** takes a huge advantage to minimize this problem. It's simply because if people's body informations are missing in final results, the generator will become heavily loaded when it mapping back to original images. Therefore, the best strategy will be reserving those informations at the first time.
+- **Cycle Consistency** takes a huge advantage to minimize this problem. It's simply because if people's body information is missing in final results, the generator will become heavily loaded when it mapping back to original images. Therefore, the best strategy will be reserving those information at the first time.
 
 <div align="center">
  <img src="image/AMP.png" width="700px" />
- <p>Fig.3 In comparison of arms missing problem with CP-VTON's results, our cycleTryOn module has successfully reserved arms informations. Even though our model haven't optimize to its best state, the tendency is still obvious.</p>
+ <p>Fig.3 In comparison of arms missing problem with CP-VTON's results, our cycleTryOn module has successfully reserved arms information. Even though our model haven't optimize to its best state, the tendency is still obvious.</p>
 </div>
 
 #### Joined Limbs Into Body Information
 - After resolving arms missing problem we combine limbs information into body information, aiming to refine the details.
-- Providing limbs information to the network do result great limbs details in result as shown in Fig.4. However, the presence of limbs information in input seems to strongly limit the clothing shape to the original one on model(see Fig.4).
+
+- Providing limbs information to the network do result great limbs details as shown in Fig.4. However, the presence of limbs information in input seems to strongly limit the clothing shape to the original one on model(see Fig.4).
+
 - Although providing limbs information restricted the usage to same clothing type only, we still suggest training model by case for real word usage considering the prestigious refinement of its details.
 
 <div align="center">
@@ -65,7 +67,7 @@
 </div>
 
 ### Human Parser Influence
-- Since GMM takes the original cloth on person as ground truth by using human parser to crop the cloth out from person image, we consider the higher mIoU human parsing network can achieve the better GMM result would be.
+- Since GMM takes the original clothing on person as ground truth by using human parser to crop the clothing out from person image, we premeditated the higher mIoU human parsing network can achieve the better GMM result would be.
 
 <div align="center">
  <img src="image/PI.png" width="350px" />
