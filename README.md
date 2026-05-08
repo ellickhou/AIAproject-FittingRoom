@@ -4,9 +4,9 @@
  <p>Fig.1 Testing result for different types of Try-On task.</p>
 </div>
 
-- Virtual Try-On scheme base on cycleGAN.
+- Virtual Try-On scheme based on cycleGAN.
 - Top3 project in Taiwain AI Academy finals.(Technical Professionals Program)
-- Utilize cycle consistency to improve unrealistic results caused by either geometric matching or behavior of networks without inverse mapping.
+- Utilize cycle consistency to improve unrealistic results caused by either geometric matching or the behavior of networks without inverse mapping.
 - Code was developed and tested with pytorch==0.4.1, torchvision==0.2.1.
 - _TOC_
    - [Dataset](#Dataset)
@@ -21,19 +21,20 @@
 
 
 ## Dataset
-- Base on [Toward Characteristic-Preserving Image-based Virtual Try-On Network](https://github.com/sergeywong/cp-vton)(CP-VTON) dataset.
-- Use [Self Correction for Human Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing) to achieve better parsing results.
-- Add male model images extracted from [FashionGen dataset](https://fashion-gen.com) to encompass all genders for real world usage.
+- Based on the [Toward Characteristic-Preserving Image-based Virtual Try-On Network](https://github.com/sergeywong/cp-vton)(CP-VTON) dataset.
+- Use [Self-Correction for Human Parsing](https://github.com/PeikeLi/Self-Correction-Human-Parsing) to achieve better parsing results.
+- Add male model images from the [FashionGen dataset](https://fashion-gen.com) to support all genders for real-world use.
+
+
 
 ## Discussion
-- We replicated [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by the implementation details, provided by their paper, to make comparison with our cycleTryOn module in this section.
-
+- We replicated [CP-VTON](https://github.com/sergeywong/cp-vton)'s Try-On Module by implementing the details described in their paper to compare it with our cycleTryOn module in this section.
 ### Geometric Matching Limitation
-- Although Geometric Matching Module(GMM), proposed by CP-VTON, had proven its efficiency in aligning in-shop clothes with human images, GMM dose not have the ability to differentiate the inside and outside of clothes, To be more precisely, GMM tends to force the WHOLE in-shop cloth into the original clothing shape on person if the deformation grid is dense enough.
+- Although the Geometric Matching Module (GMM), proposed by CP-VTON, has proven efficient at aligning in-shop clothes with human images, it lacks the ability to distinguish the inside and outside of clothes. To be more precise, GMM tends to force the WHOLE in-shop cloth image into the original clothing shape on the person if the deformation grid is dense enough.
 
-- **Cycle Consistency loss** and **Adversarial loss** are introduced to calibrate this kind of unrealistic problems in this work. 
+- **Cycle Consistency Loss** and **Adversarial Loss** are introduced in this work to address this kind of unrealistic problem.
 
-- As shown in Fig.2, the lining and tag of target clothes still exist in results of CP-VTON. In comparison to CP-VTON, our cycleTryOn module has learned how to hide the inner part of clothes and successfully generate the appropriate skin color of people.
+- As shown in Fig. 2, the lining and tag of the target clothes still appear in the results of CP-VTON. Compared to CP-VTON, our cycleTryOn module has learned to hide the inner parts of clothes and successfully generate the appropriate skin colors for people.
 
 <div align="center">
  <img src="image/GML.png" width="700px" />
@@ -43,9 +44,9 @@
 ### Arms Missing Problem
 - For some rare poses in dataset, pose with folded arms for example, failure rate become extremely high in CP-VTON. Substantially, there has NO success testing result been found in our facsimile of CP-VTON module. 
 
-- From our perspective, networks without inverse mapping is hard to learn in which case people's body information should be reserved. The best strategy of generator is to paste warped clothes on the right position when the data of folded arms pose is short.
+- From our perspective, networks without inverse mapping are hard to learn, in which case, people’s body information should be reserved. The best strategy for a single GAN is to paste warped clothes into the correct positions when the data for the folded-arm pose is short.
 
-- **Cycle Consistency** takes a huge advantage to minimize this problem. It's simply because if people's body information is missing in final results, the generator will become heavily loaded when it mapping back to original images. Therefore, the best strategy will be reserving those information at the first time.
+- *Cycle Consistency* provides a significant advantage in minimizing this problem. It’s simply because if people’s body information is missing in the final results, the generator will become heavily loaded when it maps back to the original images. Therefore, the best strategy will be to reserve that information at first.
 
 <div align="center">
  <img src="image/AMP.png" width="700px" />
@@ -53,11 +54,11 @@
 </div>
 
 #### Joined Limbs Into Body Information
-- After resolving arms missing problem we combine limbs information into body information, aiming to refine the details.
+- After resolving the missing arms issue, we combine the limb and body information to refine the details.
 
-- Providing limbs information to the network do result great limbs details as shown in Fig.4. However, the presence of limbs information in input seems to strongly limit the clothing shape to the original one on model(see Fig.4).
+- Providing limb information to the network results in detailed limb information, as shown in Fig. 4. However, the presence of limb information in the input seems to strongly limit the clothing shape to the original one in the model (see Fig. 4).
 
-- Although providing limbs information restricted the usage to same clothing type only, we still suggest training model by case for real word usage considering the prestigious refinement of its details.
+- Although providing limb information restricted usage to a single clothing type, we still suggest training the model by case for real-world use, given the model's potential for detailed refinement.
 
 <div align="center">
  <img src="image/LE1.png" width="700px" />
@@ -67,7 +68,7 @@
 </div>
 
 ### Human Parser Influence
-- Since GMM takes the original clothing on person as ground truth by using human parser to crop the clothing out from person image, we premeditated the higher mIoU human parsing network can achieve the better GMM result would be.
+- Since GMM uses the original clothing on a person as ground truth by using a human parser to crop the clothing from a person's image, we hypothesize that a higher mIoU human parsing network can achieve better GMM results.
 
 <div align="center">
  <img src="image/PI.png" width="350px" />
@@ -75,7 +76,8 @@
 </div>
 
 ## User Guide
-- The framework of Try-On Module in this project refer to [Virtually Trying on New Clothing with Arbitrary Poses](https://www.english.com.tw/modules/newbb/viewtopic.php?post_id=928), but change the training strategy and pipeline for different purpose.
+- The framework of this FittingRoom try-on cycleGAN refers to  [Virtually Trying on New Clothing with Arbitrary Poses](https://www.english.com.tw/modules/newbb/viewtopic.php?post_id=928), but changes the training strategy and data pipeline for a better quality.
+
 ### Training
 - example command, ```--uselimbs``` is an option for certain Try-On task, please see [Joined Limbs Into Body Information](#Joined-Limbs-Into-Body-Information).
 ```
